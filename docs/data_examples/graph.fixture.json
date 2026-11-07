@@ -1,0 +1,29 @@
+{
+  "map_id": "colonia",
+  "adjacency": {
+    "entrada": [
+      "parqueo",
+      "tienda"
+    ],
+    "parqueo": [
+      "entrada",
+      "callejon"
+    ],
+    "tienda": [
+      "entrada",
+      "plaza"
+    ],
+    "callejon": [
+      "parqueo",
+      "plaza"
+    ],
+    "plaza": [
+      "tienda",
+      "callejon",
+      "salva_cola"
+    ],
+    "salva_cola": [
+      "plaza"
+    ]
+  }
+}

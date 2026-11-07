@@ -1,0 +1,49 @@
+{
+  "id": "wave_contract_demo",
+  "map_id": "colonia",
+  "balance_version": "proposal-1",
+  "regular_active_limit": 50,
+  "max_spawns_per_frame": 5,
+  "events": [
+    {
+      "event_id": "event_001",
+      "time_s": 0,
+      "sequence": 0,
+      "enemy_id": "enemy_basic",
+      "quantity": 2,
+      "pattern": "ring"
+    },
+    {
+      "event_id": "event_002",
+      "time_s": 2,
+      "sequence": 1,
+      "enemy_id": "enemy_basic",
+      "quantity": 2,
+      "pattern": "ring"
+    },
+    {
+      "event_id": "event_003",
+      "time_s": 60,
+      "sequence": 2,
+      "enemy_id": "enemy_medium",
+      "quantity": 1,
+      "pattern": "ring"
+    },
+    {
+      "event_id": "event_004",
+      "time_s": 180,
+      "sequence": 3,
+      "enemy_id": "miniboss",
+      "quantity": 1,
+      "pattern": "boss_anchor"
+    },
+    {
+      "event_id": "event_005",
+      "time_s": 300,
+      "sequence": 4,
+      "enemy_id": "boss_cio",
+      "quantity": 1,
+      "pattern": "boss_anchor"
+    }
+  ]
+}

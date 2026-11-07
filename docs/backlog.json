@@ -1,0 +1,1400 @@
+[
+  {
+    "id": "C01",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Arquitectura y contratos",
+    "dependencies": [],
+    "acceptance": "Publicar interfaces y resolver fuentes de autoridad; Guillermo revisa adaptadores",
+    "status": "DONE",
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "branch": "docs/blueprints-v2",
+      "base_branch": "main",
+      "latest_commit": "86b764a",
+      "pr_number": 2,
+      "pr_state": "MERGED",
+      "review_state": "MERGED",
+      "merge_state": "MERGED"
+    }
+  },
+  {
+    "id": "C02",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F0",
+    "hours": 2,
+    "title": "RunState y composición",
+    "dependencies": [
+      "C01"
+    ],
+    "acceptance": "Probar start/pause/resume/restart con FakeClock; una sola transición terminal",
+    "status": "REVIEW",
+    "dependency_tracking": {
+      "C01": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "headless": "PENDING",
+      "runtime": "PENDING",
+      "owner_review": "ACCEPTED",
+      "javier_review": "CHANGES_REQUESTED",
+      "branch": "feature/C02-run-state",
+      "base_branch": "main",
+      "latest_commit": "fe4dbce",
+      "pr_number": 5,
+      "pr_state": "OPEN",
+      "review_state": "CHANGES_REQUESTED",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "C03",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Esquemas y catálogo mínimo",
+    "dependencies": [
+      "C01"
+    ],
+    "acceptance": "Validar IDs/categorías y cargar fixtures de 3 armas/3 pasivos; error legible",
+    "status": "REVIEW",
+    "dependency_tracking": {
+      "C01": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "headless": "PENDING",
+      "runtime": "PENDING",
+      "branch": "feature/C03-data-catalog",
+      "base_branch": "main",
+      "latest_commit": "91484dd",
+      "pr_number": 9,
+      "pr_state": "OPEN",
+      "review_state": "PENDING",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "C04",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Inventario transaccional",
+    "dependencies": [
+      "C03"
+    ],
+    "acceptance": "Agregar/mejorar/reemplazar sin exceder 5+5; fallo conserva snapshot",
+    "status": "REVIEW",
+    "dependency_tracking": {
+      "C03": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "headless": "PENDING",
+      "runtime": "PENDING",
+      "branch": "feature/C04-inventory",
+      "base_branch": "feature/C03-data-catalog",
+      "latest_commit": "b5e01b9",
+      "pr_number": 10,
+      "pr_state": "OPEN",
+      "review_state": "PENDING",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "C05",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F1",
+    "hours": 4,
+    "title": "XP con sobrantes",
+    "dependencies": [
+      "C02"
+    ],
+    "acceptance": "20 XP desde L1 produce L3 XP0 y dos elecciones; tope20 probado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C06",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Ofertas y consumo único",
+    "dependencies": [
+      "C04",
+      "C05"
+    ],
+    "acceptance": "Oferta sin duplicados; doble clic y stale_offer no duplican mejora",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C07",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F1",
+    "hours": 4,
+    "title": "StatsResolver inicial",
+    "dependencies": [
+      "C03",
+      "C04"
+    ],
+    "acceptance": "Botas/Chaleco/Rancheras derivan stats desde base sin acumular dos veces",
+    "status": "REVIEW",
+    "dependency_tracking": {
+      "C03": "HARD",
+      "C04": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "headless": "PENDING",
+      "runtime": "PENDING",
+      "branch": "feature/C07-stats",
+      "base_branch": "feature/C04-inventory",
+      "latest_commit": "8e1e040",
+      "pr_number": 11,
+      "pr_state": "OPEN",
+      "review_state": "PENDING",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "C08",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Integrar Undo académico",
+    "dependencies": [
+      "C04",
+      "C07",
+      "J05"
+    ],
+    "acceptance": "Dos cambios y dos Undo restauran build/stats; HP/XP no retroceden",
+    "status": "REVIEW",
+    "dependency_tracking": {
+      "C04": "HARD",
+      "C07": "HARD",
+      "J05": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "headless": "PENDING",
+      "runtime": "PENDING",
+      "branch": "feature/C08-undo-integration",
+      "base_branch": "feature/C07-stats",
+      "latest_commit": "4735d53",
+      "pr_number": 12,
+      "pr_state": "OPEN",
+      "review_state": "PENDING",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "C09",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Cerrar progresión y pasivos",
+    "dependencies": [
+      "C06",
+      "C07",
+      "G07"
+    ],
+    "acceptance": "Tres pasivos funcionan; inventario saturado tiene fallback y MAX visible",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C10",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Perfil y recuperación local",
+    "dependencies": [
+      "C03"
+    ],
+    "acceptance": "JSON válido, corrupto, backup y versión futura probados sin perder original",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C11",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Integración MVP y catálogo",
+    "dependencies": [
+      "C09",
+      "C10",
+      "J10",
+      "R11",
+      "G10"
+    ],
+    "acceptance": "Run completa con resumen; UI de catálogo compara búsqueda lineal/binaria",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C12",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F3",
+    "hours": 4,
+    "title": "WorldState tipado",
+    "dependencies": [
+      "C11"
+    ],
+    "acceptance": "Cambian flags y zonas sin duplicar nivel/HP; reset borra run anterior",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C13",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Árbol de misiones",
+    "dependencies": [
+      "C12",
+      "O12"
+    ],
+    "acceptance": "Un padre/raíz; condición activa hijos y recompensa una vez",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C14",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Integrar CP3",
+    "dependencies": [
+      "C13",
+      "J13",
+      "J14",
+      "G13",
+      "G14"
+    ],
+    "acceptance": "Misma escena demuestra ruta, validación, misión y estado sin scripts externos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C15",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F4",
+    "hours": 4,
+    "title": "Instrumentación de ciclo",
+    "dependencies": [
+      "C14"
+    ],
+    "acceptance": "Mide frame/XP/inventario con run_id y balance_version; sin doble resumen",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C16",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Correcciones de sistemas",
+    "dependencies": [
+      "C15",
+      "O15"
+    ],
+    "acceptance": "Cerrar bugs de XP/estado/guardado priorizados o registrar cero pendientes críticos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "C17",
+    "owner": "Carlos Valencia",
+    "reviewer": "Javier Guzmán",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Defensa y revisión final",
+    "dependencies": [
+      "C16",
+      "O16"
+    ],
+    "acceptance": "Explicar arquitectura/datos con demo breve y revisar contrato final",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G01",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Registrar baseline y editor",
+    "dependencies": [],
+    "acceptance": "Abrir mundo, grabar60 s y registrar versión exacta; F5 configurado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G02",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Inputs y colisiones",
+    "dependencies": [
+      "G01"
+    ],
+    "acceptance": "WASD/flechas, pausa y tabla de máscaras comprobados con cada contacto",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G03",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Adaptadores Player",
+    "dependencies": [
+      "G01",
+      "C01"
+    ],
+    "acceptance": "recibir_dano/ganar_xp tienen punto de delegación sin reescribir animación",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G04",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Salud y muerte única",
+    "dependencies": [
+      "G03",
+      "C02"
+    ],
+    "acceptance": "HP0 emite una muerte y detiene daño; i-frames y heal con límites",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G05",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F1",
+    "hours": 4,
+    "title": "HUD desacoplado",
+    "dependencies": [
+      "G03",
+      "C05"
+    ],
+    "acceptance": "Barra/nivel/HP reaccionan a snapshots; no buscan ruta desde Player",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G06",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Ejecutor visual Taser",
+    "dependencies": [
+      "J06",
+      "R06"
+    ],
+    "acceptance": "Cadena aplica daño real y dibuja impactos sin repetir objetivo",
+    "status": "BACKLOG",
+    "dependency_tracking": {
+      "J06": "HARD",
+      "R06": "HARD"
+    }
+  },
+  {
+    "id": "G07",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F1",
+    "hours": 4,
+    "title": "UI de mejoras",
+    "dependencies": [
+      "G05",
+      "C06"
+    ],
+    "acceptance": "Selecciona una opción, funciona pausada, maneja1–3 candidatos/fallback",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G08",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Pausa y cierre de slice",
+    "dependencies": [
+      "G04",
+      "G06",
+      "G07",
+      "R08"
+    ],
+    "acceptance": "Pausar congela mundo; morir/reiniciar no duplica señales; debug CP2 termina",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G09",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Machete y sincronización de armas",
+    "dependencies": [
+      "G08",
+      "C07"
+    ],
+    "acceptance": "Área golpea una vez por objetivo/ataque; cambiar build no duplica ejecutores",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G10",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Menú y resumen",
+    "dependencies": [
+      "G08",
+      "C10"
+    ],
+    "acceptance": "Jugar/opciones/resultado/reintentar accesibles;3 reinicios sin estado viejo",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G11",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Visuales de jefes y Regia",
+    "dependencies": [
+      "R10",
+      "R11",
+      "G09"
+    ],
+    "acceptance": "Telegraphs/barras legibles; Regia cura por contacto; MVP presentable",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G12",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Arena con seis zonas",
+    "dependencies": [
+      "G11",
+      "O12"
+    ],
+    "acceptance": "Una escena con pasos físicos que coinciden con MapDefinition",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G13",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Ruta BFS visible",
+    "dependencies": [
+      "G12",
+      "J13"
+    ],
+    "acceptance": "Ruta cambia al entrar zona/recoger objetivo; inaccesible se comunica",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G14",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F3",
+    "hours": 4,
+    "title": "UI de misiones y estado",
+    "dependencies": [
+      "G12",
+      "C13"
+    ],
+    "acceptance": "Progreso/hijos/recompensa y flags visibles en juego y panel académico",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G15",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F4",
+    "hours": 4,
+    "title": "Perfilado visual y rendimiento",
+    "dependencies": [
+      "G13",
+      "G14",
+      "O15"
+    ],
+    "acceptance": "Localizar coste de escenas/proyectiles y medir antes/después de un cambio",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G16",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Export reproducible",
+    "dependencies": [
+      "G15",
+      "O16",
+      "C16",
+      "R16",
+      "J16"
+    ],
+    "acceptance": "Build en otra máquina abre y completa smoke; editor/templates documentados",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "G17",
+    "owner": "Guillermo Córdova",
+    "reviewer": "René Serrano",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Defensa de engine",
+    "dependencies": [
+      "G16"
+    ],
+    "acceptance": "Explicar árbol, colisiones y ciclo de frame con recorrido de3 min",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R01",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Auditar ciclo Enemy y spawner",
+    "dependencies": [],
+    "acceptance": "Documentar muerte/drop/contacto y transición del Timer a cola",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R02",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Contrato WaveEvent y posiciones",
+    "dependencies": [
+      "R01",
+      "C01"
+    ],
+    "acceptance": "Fixture ordenado y reglas de cupo/posición revisadas con Javier",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R03",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Escena de prueba de enemigos",
+    "dependencies": [
+      "R01",
+      "G01"
+    ],
+    "acceptance": "FakePlayer permite probar persecución/daño/drop sin resto de sistemas",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R04",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F1",
+    "hours": 4,
+    "title": "EnemyBase y muerte idempotente",
+    "dependencies": [
+      "R03",
+      "C03"
+    ],
+    "acceptance": "Un enemigo recibe2 daños letales en frame y produce1 muerte/drop",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R05",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F1",
+    "hours": 4,
+    "title": "WaveManager con FIFO",
+    "dependencies": [
+      "R02",
+      "J04",
+      "C02"
+    ],
+    "acceptance": "Despacha por tiempo/sequence, presupuesto5 y cupo50; Timer viejo desactivado",
+    "status": "BACKLOG",
+    "dependency_tracking": {
+      "R02": "HARD",
+      "J04": "HARD",
+      "C02": "INTEGRATION"
+    }
+  },
+  {
+    "id": "R06",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Registro y targeting",
+    "dependencies": [
+      "R04"
+    ],
+    "acceptance": "IDs únicos, consultas limpian muertos; Taser no retiene Nodes liberados",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R07",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Monedas y XP única",
+    "dependencies": [
+      "R04",
+      "C05"
+    ],
+    "acceptance": "Drop1/5/20 y pickup consumido una vez; sin XP por muerte directa",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R08",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Integración CP2 de oleadas",
+    "dependencies": [
+      "R05",
+      "R06",
+      "R07",
+      "J07"
+    ],
+    "acceptance": "Escenario real reproduce FIFO/pausa/reinicio y no tiene generador duplicado",
+    "status": "BACKLOG",
+    "dependency_tracking": {
+      "R05": "HARD",
+      "R06": "HARD",
+      "R07": "HARD",
+      "J07": "HARD"
+    }
+  },
+  {
+    "id": "R09",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Enemigo mediano y escalado",
+    "dependencies": [
+      "R08",
+      "O09"
+    ],
+    "acceptance": "Definición configurable reutiliza base; más HP/daño con mismos contratos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R10",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Mini jefe con aviso",
+    "dependencies": [
+      "R09"
+    ],
+    "acceptance": "A180 s aparece una vez; embestida visible; kill20 XP y flag; despawn no recompensa",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R11",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F2",
+    "hours": 4,
+    "title": "CIO y fin de oleadas",
+    "dependencies": [
+      "R10",
+      "C02"
+    ],
+    "acceptance": "A300 s único, limpieza sin XP, fase2 y plazo90 s; spawn garantizado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R12",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Spawns sobre arena final",
+    "dependencies": [
+      "R11",
+      "G12"
+    ],
+    "acceptance": "Posiciones válidas en seis zonas; no aparece en paredes ni encima del jugador",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R13",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Eventos de jefe y misiones",
+    "dependencies": [
+      "R11",
+      "C12",
+      "C13"
+    ],
+    "acceptance": "Muerte/despawn diferencian flags; evento duplicado no duplica recompensa",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R14",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Regresión CP3 de enemigos",
+    "dependencies": [
+      "R12",
+      "R13",
+      "J14"
+    ],
+    "acceptance": "Arena válida, BFS y combate coexisten; no fugas al reiniciar",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R15",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F4",
+    "hours": 4,
+    "title": "Estrés de oleadas y registro",
+    "dependencies": [
+      "R14"
+    ],
+    "acceptance": "Probar50/100/200/500 en debug; medir atraso/limpieza sin prometer500 jugables",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R16",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Correcciones de combate enemigo",
+    "dependencies": [
+      "R15",
+      "O15"
+    ],
+    "acceptance": "Resolver bugs priorizados con prueba y comparar medición",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "R17",
+    "owner": "René Serrano",
+    "reviewer": "Guillermo Córdova",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Defensa de oleadas y jefes",
+    "dependencies": [
+      "R16"
+    ],
+    "acceptance": "Mostrar FIFO vivo, ciclo único de muerte y reglas de bosses",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J01",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Especificar Queue y Stack",
+    "dependencies": [
+      "C01"
+    ],
+    "acceptance": "APIs con vacío/tipos/complejidad y fixture mínimo acordados",
+    "status": "DONE",
+    "dependency_tracking": {
+      "C01": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "branch": "Javi",
+      "base_branch": "main",
+      "latest_commit": "0c052e4",
+      "pr_number": 3,
+      "pr_state": "MERGED",
+      "review_state": "MERGED",
+      "merge_state": "MERGED"
+    }
+  },
+  {
+    "id": "J02",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Diseñar Taser recursivo",
+    "dependencies": [
+      "R02"
+    ],
+    "acceptance": "max_targets incluye primero; query/hit callbacks y casos base definidos",
+    "status": "DONE",
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "evidence": "docs/JAVIER_CHECKPOINT2.md"
+    }
+  },
+  {
+    "id": "J03",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Preparar runner de pruebas",
+    "dependencies": [
+      "J01"
+    ],
+    "acceptance": "Una prueba exitosa y otra fallida generan salida/exit code reproducibles",
+    "status": "DONE",
+    "dependency_tracking": {
+      "J01": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "branch": "Javi",
+      "base_branch": "main",
+      "latest_commit": "9b8d712",
+      "pr_number": 7,
+      "pr_state": "MERGED",
+      "review_state": "MERGED",
+      "merge_state": "MERGED"
+    }
+  },
+  {
+    "id": "J04",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Cola circular dinámica",
+    "dependencies": [
+      "J01",
+      "J03"
+    ],
+    "acceptance": "FIFO/vacío/wrap/growth verificados; O(1) amortizado documentado",
+    "status": "DONE",
+    "dependency_tracking": {
+      "J01": "HARD",
+      "J03": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "branch": "Javi",
+      "base_branch": "main",
+      "latest_commit": "1b8b572",
+      "pr_number": 4,
+      "pr_state": "MERGED",
+      "review_state": "MERGED",
+      "merge_state": "MERGED"
+    }
+  },
+  {
+    "id": "J05",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Stack de snapshots",
+    "dependencies": [
+      "J01",
+      "J03"
+    ],
+    "acceptance": "LIFO y copia profunda; límite64 y coste de overflow documentados",
+    "status": "DONE",
+    "dependency_tracking": {
+      "J01": "HARD",
+      "J03": "HARD"
+    },
+    "tracking": {
+      "implementation": "COMPLETE",
+      "static_review": "COMPLETE",
+      "branch": "Javi",
+      "base_branch": "main",
+      "latest_commit": "991ca49",
+      "pr_number": 7,
+      "pr_state": "MERGED",
+      "review_state": "MERGED",
+      "merge_state": "MERGED"
+    }
+  },
+  {
+    "id": "J06",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Taser puro e integración de daño",
+    "dependencies": [
+      "J02",
+      "R06"
+    ],
+    "acceptance": "0/1/3/8 objetivos; visited por descarga; coste O(kN) y referencias válidas",
+    "status": "DONE",
+    "tracking": {
+      "implementation": "COMPLETE",
+      "runtime_test": "22/22",
+      "latest_commit": "fa5bb90d0b3c8e17888091520480ff155e5f447a"
+    }
+  },
+  {
+    "id": "J07",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Pruebas CP2 completas",
+    "dependencies": [
+      "J04",
+      "J05",
+      "J06"
+    ],
+    "acceptance": "Casos límites y secuencias reproducibles pasan en runner",
+    "status": "DONE",
+    "dependency_tracking": {
+      "J04": "HARD",
+      "J05": "HARD",
+      "J06": "HARD"
+    },
+    "tracking": {
+      "runtime_test": "COMPLETE",
+      "algorithms": "25/25",
+      "c02": "2/2",
+      "checkpoint2": "22/22",
+      "latest_commit": "fa5bb90d0b3c8e17888091520480ff155e5f447a"
+    }
+  },
+  {
+    "id": "J08",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Documentar y defender CP2",
+    "dependencies": [
+      "J07",
+      "R08",
+      "C08",
+      "G06"
+    ],
+    "acceptance": "Pseudocódigo coincide con código; evidencia usa invocación real del juego",
+    "status": "DONE",
+    "dependency_tracking": {
+      "J07": "HARD",
+      "R08": "INTEGRATION",
+      "C08": "INTEGRATION",
+      "G06": "INTEGRATION"
+    },
+    "tracking": {
+      "dependency_status": {
+        "C08": "INTEGRATED_CP2",
+        "J07": "COMPLETE",
+        "R08": "INTEGRATED_CP2",
+        "G06": "INTEGRATED_CP2"
+      },
+      "evidence": "docs/JAVIER_CHECKPOINT2.md",
+      "review_state": "READY_FOR_REVIEW",
+      "merge_state": "NOT_MERGED"
+    }
+  },
+  {
+    "id": "J09",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Dos algoritmos de ordenamiento",
+    "dependencies": [
+      "J08"
+    ],
+    "acceptance": "Insertion/merge coinciden en datos aleatorios/ordenados/repetidos; panel consume ranking",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J10",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Búsqueda lineal y binaria",
+    "dependencies": [
+      "J09",
+      "C03"
+    ],
+    "acceptance": "Orden por ID, ausentes/extremos/empty devuelven mismo resultado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J11",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Harness de benchmarks",
+    "dependencies": [
+      "J09",
+      "J10",
+      "O11"
+    ],
+    "acceptance": "Seeds y n configurables; tiempos/operaciones sin incluir preparación ni logs",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J12",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Modelo de grafo validado",
+    "dependencies": [
+      "J11",
+      "O12"
+    ],
+    "acceptance": "Adyacencia simétrica, IDs válidos; fixture desconectado rechazado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J13",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F3",
+    "hours": 4,
+    "title": "BFS para ruta en arena",
+    "dependencies": [
+      "J12"
+    ],
+    "acceptance": "Ruta mínima en saltos, origen=destino y unreachable probados",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J14",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F3",
+    "hours": 4,
+    "title": "DFS y revisión del árbol",
+    "dependencies": [
+      "J12",
+      "C13"
+    ],
+    "acceptance": "Alcanzabilidad real y detección de ciclos/raíz del árbol verificadas",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J15",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F4",
+    "hours": 4,
+    "title": "Experimentos finales de algoritmos",
+    "dependencies": [
+      "J13",
+      "J14",
+      "O15"
+    ],
+    "acceptance": "Resultados crudos y complejidad comparados; sin resultados inventados",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J16",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Revisión técnica y casos límite",
+    "dependencies": [
+      "J15",
+      "O16"
+    ],
+    "acceptance": "Vacíos/reinicio/referencias/overflow sin fallos; corregir desviaciones",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "J17",
+    "owner": "Javier Guzmán",
+    "reviewer": "Carlos Valencia; René revisa Queue",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Defensa de estructuras",
+    "dependencies": [
+      "J16"
+    ],
+    "acceptance": "Explicar código, costes y tradeoffs sin depender de leer slides",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O01",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Confirmar fuentes y calendario",
+    "dependencies": [],
+    "acceptance": "Conseguir syllabus/rúbrica y horas por integrante; registrar pendientes si no llega",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O02",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Biblia y backlog revisados",
+    "dependencies": [
+      "O01",
+      "C01"
+    ],
+    "acceptance": "Alcance/IDs/decisiones revisados; tareas con owner y aceptación",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O03",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F0",
+    "hours": 2,
+    "title": "Matriz QA y baseline",
+    "dependencies": [
+      "O02",
+      "G01"
+    ],
+    "acceptance": "Reproducir60 s y registrar bugs con SHA/pasos/resultado",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O04",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Datos para slice CP2",
+    "dependencies": [
+      "O02",
+      "C03"
+    ],
+    "acceptance": "Tres armas/pasivos y oleada corta con valores completos y válidos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O05",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Casos límite CP2",
+    "dependencies": [
+      "O03",
+      "J03"
+    ],
+    "acceptance": "Fixtures XP20, inventario5+5 y doble muerte preparados con expected",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O06",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F1",
+    "hours": 4,
+    "title": "QA integrado CP2",
+    "dependencies": [
+      "O04",
+      "O05",
+      "G08",
+      "C08",
+      "R08"
+    ],
+    "acceptance": "Probar loop/stack/queue/taser y registrar pass/fail/blocked por SHA",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O07",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Evidencia y trazabilidad CP2",
+    "dependencies": [
+      "O06",
+      "J08"
+    ],
+    "acceptance": "Video/pseudocódigo/tabla tienen enlaces y mismo commit; fallos visibles",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O08",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F1",
+    "hours": 4,
+    "title": "Ensayo y paquete CP2",
+    "dependencies": [
+      "O07"
+    ],
+    "acceptance": "Otro compañero repite demo; build/evidencia identificados y pendientes resueltos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O09",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Balance de300 s y bosses",
+    "dependencies": [
+      "O08"
+    ],
+    "acceptance": "Definiciones regulares/boss/pasivos completas y validadas; protocolo de cinco playtests listo",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O10",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F2",
+    "hours": 4,
+    "title": "QA del MVP",
+    "dependencies": [
+      "O09",
+      "C11",
+      "G11",
+      "R11"
+    ],
+    "acceptance": "Cinco playtests; victory/defeat/Regia/tres armas/pasivos y resets reproducidos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O11",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F2",
+    "hours": 4,
+    "title": "Datasets y protocolo métricas",
+    "dependencies": [
+      "O10"
+    ],
+    "acceptance": "n10/100/1000/10000 con seed; metadata hardware y medición definidas",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O12",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Contenido de zonas y misiones",
+    "dependencies": [
+      "O11"
+    ],
+    "acceptance": "Seis zonas/aristas y árbol de un padre con recompensas y fixtures aprobados",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O13",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F3",
+    "hours": 4,
+    "title": "QA integrado CP3",
+    "dependencies": [
+      "O12",
+      "C14",
+      "R14"
+    ],
+    "acceptance": "BFS/DFS/tree/dictionary producen efectos reales; caso de mapa inválido",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O14",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F3",
+    "hours": 4,
+    "title": "Evidencia y ensayo CP3",
+    "dependencies": [
+      "O13"
+    ],
+    "acceptance": "Demo repetible y trazabilidad completa sin afirmar pruebas pendientes",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O15",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F4",
+    "hours": 4,
+    "title": "Recoger métricas y balance final",
+    "dependencies": [
+      "O14",
+      "J11",
+      "R15"
+    ],
+    "acceptance": "Ejecutar harness y runs; reportar mediana/p95/operaciones con datos crudos",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O16",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Regresión final independiente",
+    "dependencies": [
+      "O15",
+      "C15",
+      "G14"
+    ],
+    "acceptance": "Smoke y casos críticos en release candidate; bugs con prioridad/owner",
+    "status": "BACKLOG"
+  },
+  {
+    "id": "O17",
+    "owner": "Roberto Villacorta",
+    "reviewer": "Owner técnico del sistema afectado",
+    "phase": "F4",
+    "hours": 3,
+    "title": "Paquete y ensayo de entrega",
+    "dependencies": [
+      "O16",
+      "G16",
+      "C17",
+      "R17",
+      "J17"
+    ],
+    "acceptance": "Build final del mismo SHA tras correcciones; retest afectado/smoke, métricas/video y cinco guiones completos",
+    "status": "BACKLOG"
+  }
+]

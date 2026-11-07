@@ -1,0 +1,66 @@
+[
+  {
+    "id": "patrulla",
+    "parent_id": null,
+    "condition": {
+      "event_type": "run_started",
+      "required_count": 1
+    },
+    "reward": {
+      "kind": "none",
+      "amount": 0
+    }
+  },
+  {
+    "id": "recoger_5_monedas",
+    "parent_id": "patrulla",
+    "condition": {
+      "event_type": "pickup_collected",
+      "target_id": "xp_coin",
+      "required_count": 5
+    },
+    "reward": {
+      "kind": "heal",
+      "amount": 10
+    }
+  },
+  {
+    "id": "visitar_tienda",
+    "parent_id": "recoger_5_monedas",
+    "condition": {
+      "event_type": "zone_entered",
+      "target_id": "tienda",
+      "required_count": 1
+    },
+    "reward": {
+      "kind": "spawn_regia",
+      "amount": 1
+    }
+  },
+  {
+    "id": "derrotar_miniboss",
+    "parent_id": "visitar_tienda",
+    "condition": {
+      "event_type": "enemy_died",
+      "target_id": "miniboss",
+      "required_count": 1
+    },
+    "reward": {
+      "kind": "heal",
+      "amount": 20
+    }
+  },
+  {
+    "id": "visitar_parqueo",
+    "parent_id": "patrulla",
+    "condition": {
+      "event_type": "zone_entered",
+      "target_id": "parqueo",
+      "required_count": 1
+    },
+    "reward": {
+      "kind": "heal",
+      "amount": 10
+    }
+  }
+]

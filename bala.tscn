@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b07qhwi7ne4so"]
+
+[ext_resource type="Script" uid="uid://6pqiqnqhkveo" path="res://bala.gd" id="1_ag3k0"]
+[ext_resource type="Texture2D" uid="uid://bxkgnnajgdv7w" path="res://bala escopeta.png" id="1_jk513"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag3k0"]
+atlas = ExtResource("1_jk513")
+region = Rect2(0, 0, 704, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqo1u"]
+atlas = ExtResource("1_jk513")
+region = Rect2(704, 0, 704, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4wd0"]
+atlas = ExtResource("1_jk513")
+region = Rect2(1408, 0, 704, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8aw3"]
+atlas = ExtResource("1_jk513")
+region = Rect2(2112, 0, 704, 1536)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov0la"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag3k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqo1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4wd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8aw3")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqo1u"]
+size = Vector2(34, 15)
+
+[node name="Bala" type="Area2D" unique_id=1115996891]
+script = ExtResource("1_ag3k0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772091131]
+scale = Vector2(0.095, 0.095)
+sprite_frames = SubResource("SpriteFrames_ov0la")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075903789]
+shape = SubResource("RectangleShape2D_tqo1u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

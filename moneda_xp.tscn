@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bjuko4nibmsfi"]
+
+[ext_resource type="Texture2D" uid="uid://bjyx1am5dtrlc" path="res://uncentavoXP (1).png" id="1_25gdg"]
+[ext_resource type="Script" uid="uid://e31dbydv246x" path="res://moneda_xp.gd" id="1_ty1h0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ov0la"]
+radius = 97.04638
+
+[node name="MonedaXP" type="Area2D" unique_id=736505724]
+script = ExtResource("1_ty1h0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=723313236]
+scale = Vector2(0.08293461, 0.07097288)
+texture = ExtResource("1_25gdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450453775]
+shape = SubResource("CircleShape2D_ov0la")
